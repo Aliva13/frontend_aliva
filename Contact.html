@@ -16,10 +16,12 @@
         <div class="content">
             <div class="left-side">
                 <div class="address details">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div class="topic">Address</div>
-                    <div class="text-one">Berhampur</div>
-                    <div class="text-two">Odisha</div>
+                    <a class="map-marker" data-lat="19.290240421431793" data-lng="84.7883426452964" href="#">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      </a>
+                        <div class="topic">Address</div>
+                        <div class="text-one">Berhampur</div>
+                        <div class="text-two">Odisha</div>
                 </div>
                 <div class="phone details">
                     <i class="fas fa-phone-alt"></i>
@@ -34,7 +36,7 @@
             </div>
             <div class="right-side">
                 <div class="topic-text">Send us a message</div>
-                <p style="color: brown; font-weight: 450;" >If you have any quries you can ping me in email</p>
+                <p style="color: brown; font-weight: 450;">If you have any quries you can ping me in email</p>
                 <form action="mailto:alivamishra86@gmail.com" method="post" enctype="text/plain">
                     <div class="input-box">
                         <input type="text" placeholder="Enter your name">
@@ -52,6 +54,18 @@
             </div>
         </div>
     </div>
+    <script>
+        var mapMarkers = document.getElementsByClassName('map-marker');
+        for (const element of mapMarkers) {
+          element.addEventListener('click', function(event) {
+            event.preventDefault();
+            var lat = this.dataset.lat;
+            var lng = this.dataset.lng;
+            var mapUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+            window.open(mapUrl);
+          });
+        }
+      </script>
 </body>
 
 </html>
